@@ -1,0 +1,20 @@
+toDO
+
+Move Interval Logic to background.js
+
+START - Complete
+I) Set time and execute start on content.js
+II) content.js sends start message to background.js
+III) background.js is listening and starts startTime()
+IV) background.js sends time message back to content.js at every interval
+V) content.js is listening, recieves message and displays on extension
+
+STOP - Complete
+I) User clicks stop
+II) content.js sends message to background.js
+III) background.js is listening for stop message and executes command
+      clearInterval()
+
+DEBUG THE SYSTEM
+FIGURE OUT HOW TO MONITOR BACKGROUND.JS
+IT isn't working, figure out why

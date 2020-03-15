@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Elli's Birthday",
+  "version": "0.2",
+  "permissions": ["activeTab"],
+  "content_security_policy":
+     "script-src 'self' https://use.fontawesome.com https://code.jquery.com https://stackpath.bootstrapcdn.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; object-src 'self'",
+  "icons": {
+     "128": "./image/icon128.png",
+     "48": "./image/icon48.png",
+     "16": "./image/icon16.png"
+  },
+  
+  
+   "browser_action": {
+      "default_icon": {
+         "16": "./image/icon16.png",
+         "48": "./image/icon48.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "Elli's Birthday"
+   },
+  
+  
+  "content_scripts": [{
+       "matches": ["<all_urls>"],
+       "js": ["jquery-3.4.1.min.js", "content.js"]
+   }],
+   
+   
+   "background": {
+      "scripts": ["background.js"],
+      "persistent": "false"
+   }
+   
+}

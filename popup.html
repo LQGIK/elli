@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Interal CSS Stylesheets-->
+   <link rel="stylesheet" type="text/css" href="./popup.css">
+
+   <!-- CSS Dependencies -->
+   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="dist/bootstrap-clockpicker.min.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/github.min.css">
+
+   <!-- External CSS Stylesheets -->
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+   <title>Elli's Popup</title>
+   </head>
+   <body>
+
+    <div id="modal">
+
+
+      <!-- modalHeader -->
+      <div class="modal-header">
+         <img src="./image/icon48.png" alt="heart4elli">
+         Happy Birthday Elli! (Beta)
+      </div>
+
+      <!-- modalContent -->
+      <div class="modal-content">
+         <div class="container">
+
+            <!-- Time Input -->
+         	<div class="form-group">
+         		<h4>Jamie / Productivity Timer: </h4>
+         		<div class="input-group clockpicker">
+         			<input id="endTime" type="text" class="form-control" value="HR:MIN">
+         		</div>
+         	</div>
+
+
+            <!-- Start and Stop Button -->
+            <div id="status">
+               <a id="startTimer" class="button6">Start</a>
+               <a id="stopTimer" class="button6">Stop</a>
+            </div>
+
+
+            <!-- Timer Display -->
+            <div class="row justify-content-center border rounded-pill" id="timer">
+                 <span id="timer-hours"></span>
+                 <span id="timer-mins"></span>
+                 <span id="timer-secs"></span>
+                 <label id="message" style="font-size: 15px;"></label>
+            </div>
+         </div>
+
+
+      </div>
+   </div>
+
+
+
+      <!-- ICONS -->
+      <div class="modal-icons">
+         <div class="flex-container">
+            <div class="flex">
+               <a href="https://pathways-waring.herokuapp.com" target="_blank">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+               </a>
+            </div>
+            <div class="flex">
+               <a href="https://pathways-waring.herokuapp.com" target="_blank">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+               </a>
+            </div>
+            <div class="flex">
+               <a href="https://pathways-waring.herokuapp.com" target="_blank">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+
+      <!-- JS Dependencies -->
+
+      <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+      <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>
+      <script type="text/javascript" src="picker.js"></script>
+      <script type="text/javascript" src="assets/js/highlight.min.js"></script>
+      <script type="text/javascript" src="background.js"></script>
+      <script type="text/javascript" src="content.js"></script>
+      
+      <script src="popup.js"></script>
+
+
+      <!-- External JS-->
+      <script src="https://use.fontawesome.com/6bbf72995b.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+      <!-- JQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+   </body>
+</html>
