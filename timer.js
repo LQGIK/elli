@@ -36,7 +36,6 @@ chrome.runtime.sendMessage({ cmd: 'GET_DEADLINE' }, response => {
       document.getElementById("timer-secs").innerHTML = "<span hidden id='timer-secs'></span>"
       document.getElementById("message").innerHTML = "Whooo, Keep up the good work!";
       console.log("timer is up");
-      alert("Timer is up! Keep up the great work!");
    }
  });
  
