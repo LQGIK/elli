@@ -1,20 +1,58 @@
-toDO
 
-Move Interval Logic to background.js
+I) chrome.runtime.sendMessage
 
-START - Complete
-I) Set time and execute start on content.js
-II) content.js sends start message to background.js
-III) background.js is listening and starts startTime()
-IV) background.js sends time message back to content.js at every interval
-V) content.js is listening, recieves message and displays on extension
+      As soon as pop up window is opened, timer.js sends a "GET_DEADLINE"
+      request to background.js, for the deadline (milleseconds).
 
-STOP - Complete
-I) User clicks stop
-II) content.js sends message to background.js
-III) background.js is listening for stop message and executes command
-      clearInterval()
+II) background.js response to "GET_DEADLINE"
 
-DEBUG THE SYSTEM
-FIGURE OUT HOW TO MONITOR BACKGROUND.JS
-IT isn't working, figure out why
+      background.js is listening for a message with "GET_DEADLINE".
+      When it recieves this message, it will respond with the deadline   
+      (milleseconds) to timer.js.
+
+III) timer.js listens for "GET_DEADLINE" response
+      If the deadline (milleseconds) is NULL (timer hasn't been started)
+            A) Then timer.js will listen for user input/click, and will start
+            the timer on it.
+            
+            B) timer.js will send "STARTED_TIMER" message containing
+            deadline (milleseconds) to background.js
+
+      If the deadline (milleseconds) is NOT NULL (timer has been started)
+            A) It will load the deadline into it's display function
+            and present to the user
+
+IV) background.js listens for a message with "STARTED_TIMER".
+      When it recieves "STARTED_TIMER", it will
+            A) Clear any previous deadline
+            B) Store new deadline
+            C) Listen for "GET_DEADLINE requests (Go to part II)
+
+
+background.js
+Listens for "STARTED_TIMER" and "GET_DEADLINE"
+Also has setTimeout() logic
+
+I) background.js listens for a message with "STARTED_TIMER"
+      Clear any previous deadline
+      Store new deadline
+      setTimeout for given time left
+            alert timer.js when finished
+II) background.js listens for a message with "GET_DEADLINE"
+      respond with deadline
+
+
+timer.js
+
+I) sends "GET_DEADLINE" to background.js upon opening of popup
+      if "GET_DEADLINE" is NOT NULL
+            Begin Interval/Display function
+                  displayTime(deadline) // Uses time = deadline - now
+                  setInterval(function displayTime(response.deadline), 1000);
+      if "GET_DEADLINE" is NULL // no timer has been set yet
+            listen for user input
+            when recieved, send "STARTED_TIMER" to background.js
+            Begin Interval with displayTime()
+
+displayTime(deadline) // displays time
+setInterval(function displayTime(), 1000);

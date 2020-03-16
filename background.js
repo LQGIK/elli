@@ -1,49 +1,37 @@
 // background.js
 
-// Global Variables
-var timer;
+// Declare global variables
+let timerID;
+let endTime;
 
+// Listen for commands
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
-// Function Declaration: Keep track of time left
-function startTimer(){
+   // User STARTED_TIMER
+   if (request.cmd === 'STARTED_TIMER') {
+      console.log("recieved STARTED_TIMER");
+      endTime = request.deadline;
+      let timeOut = endTime - new Date().getTime();
 
-   timer = setInterval(function() {
+      // Begin timeout
+      timerID = setTimeout(function(){
+         chrome.runtime.sendMessage({ cmd: 'TIMER_UP' });
+         clearInterval(timerID);
+         console.log("Timer is up : background.js");
+         alert("Timer is up! Keep up the good work!");
+      },
+      timeOut);
+  } 
 
-      // Decrement countdown
-      time--;
-      console.log(time);
-      
-      
-      // Send time to content.js
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-         var activeTab = tabs[0];
-         chrome.tabs.sendMessage(activeTab.id, {"message": "time", "time": time});
-      });
-      
-
-      if (time <= 0) {
-
-         // Completed timer, restart
-         clearInterval(timer);
-      }
-   }, 1000);
-}
-
-
-// Listen for messages from content.js concerning start and stop
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if( request.message === "startTime" ) {
-       
-       // execute startTime() with request.time
-       var time = request.time;
-       clearInterval(timer);
-       startTimer();
-    }
-    else if( request.message === "stopTime" ) {
-       
-       // execute startTime() with request.time
-       clearInterval(timer);
-    }
+  // User Re-Opened Popup
+  else if (request.cmd === 'GET_DEADLINE') {
+      console.log("recieved GET_DEADLINE");
+      sendResponse({ deadline: endTime });
   }
-);
+
+  // User Stopped Timer
+  else if (request.cmd === 'STOP_TIMER') {
+     console.log("recieved STOP_TIMER");
+     clearInterval(timerID);
+  }
+});
