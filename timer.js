@@ -10,7 +10,6 @@ chrome.runtime.sendMessage({ cmd: 'GET_DEADLINE' }, response => {
 
    // If timer has been started, resume timer and listen for user input
    if (response.deadline) {
-     console.log("valid deadline receieved");
      var endTime = response.deadline;
      startTimer(endTime)
      userInput();
@@ -19,10 +18,8 @@ chrome.runtime.sendMessage({ cmd: 'GET_DEADLINE' }, response => {
 
    // If no timer has been started, listen for user input
    else if (!response.deadline){
-      console.log("null deadline receieved");
       userInput();
-   
-   }
+   }   
  });
 
 

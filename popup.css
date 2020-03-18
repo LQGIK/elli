@@ -39,6 +39,9 @@ img {
     padding-left: 0.25rem;
 }
 
+a {
+   color: white;
+}
 
 a.button6{
    display: inline-block;
@@ -88,9 +91,18 @@ a.button6:active{
 .modal-content {
    align-content: center;
    float: center;
-   height: 300px;
+   height: fit-content;
    font-size: 15px;
    padding-top: 20px;
+}
+
+#past {
+   font-size: 10px;
+   padding: 40px;
+}
+
+#question {
+   border: 2px darkslategrey dashed;
 }
 
 .modal-icons {

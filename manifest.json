@@ -3,13 +3,16 @@
    "name": "Elli's Birthday",
    "version": "0.2",
    "background": {
-     "scripts": ["background.js"]
+     "scripts": ["background.js", "store.js"]
    },
    "icons": {
       "128": "./image/icon128.png",
       "48": "./image/icon48.png",
       "16": "./image/icon16.png"
    },
+   "permissions": [
+     "storage"
+   ],
 
    "browser_action": {
      "default_icon": "./image/icon48.png",

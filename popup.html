@@ -8,10 +8,14 @@
    <!-- Interal CSS Stylesheets-->
    <link rel="stylesheet" type="text/css" href="./popup.css">
 
-   <!-- CSS Dependencies -->
-   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="dist/bootstrap-clockpicker.min.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/github.min.css">
+   <!-- CSS Time Picker -->
+   <link rel="stylesheet" type="text/css" href="timepicker/assets/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="timepicker/dist/bootstrap-clockpicker.min.css">
+   <link rel="stylesheet" type="text/css" href="timepicker/assets/css/github.min.css">
+
+   <!-- CSS Date Picker -->
+   <link rel="stylesheet" type="text/css" href="datepicker/css/bootstrap-datepicker.css">
+   <link rel="stylesheet" type="text/css" href="datepicker/css/bootstrap-datepicker.css.map">
 
    <!-- External CSS Stylesheets -->
 
@@ -58,8 +62,37 @@
                   <span id="timer-secs"></span>
                <label id="message" style="font-size: 15px;"></label>
             </div>
-         </div>
 
+            <div id="questions">
+               <div style="padding: 25px;">
+                  <div class="form-group">
+                     <label for="formGroupExampleInput">Something I'm proud of!</label>
+                     <textarea type="text" class="form-control" id="1" placeholder="Here!"></textarea>
+                  </div>
+                  <div class="form-group">
+                     <label for="formGroupExampleInput">A struggle I encountered:</label>
+                     <textarea type="text" class="form-control" id="2" placeholder="Here!"></textarea>
+                  </div>
+                  <div class="form-group">
+                     <label for="formGroupExampleInput">Possible solution for this struggle:</label>
+                     <textarea type="text" class="form-control" id="3" placeholder="Here!"></textarea>
+                  </div>
+               
+
+               <!-- Save Button -->
+                  <a id="save" style="color: white;" class="button6">Save</a>
+               </div>
+            </div>
+            <div class="row justify-content-center" style="padding: 20px;">
+               <div class="form-group">
+                  <label for="formGroupExampleInput">Past Submissions: </label>
+                  <input class="form-control" placeholder="MM/DD/YYYY" id="when" data-provide="datepicker">
+                  <a id="search" style="color: white;" class="button6">Search</a>   
+               </div>
+            </div>
+            <div id="past">
+               
+            </div>
 
       </div>
    </div>
@@ -67,14 +100,20 @@
 
       <!-- JS Dependencies -->
 
-      <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-      <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>
-      <script type="text/javascript" src="picker.js"></script>
-      <script type="text/javascript" src="assets/js/highlight.min.js"></script>
+      <!-- Time Picker-->
+      <script type="text/javascript" src="timepicker/assets/js/jquery.min.js"></script>
+      <script type="text/javascript" src="timepickerassets/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="timepicker/dist/bootstrap-clockpicker.min.js"></script>
+      <script type="text/javascript" src="timepicker/picker.js"></script>
+      <script type="text/javascript" src="timepicker/assets/js/highlight.min.js"></script>
+
+      <!-- Date Picker -->
+      <script type="text/javascript" src="datepicker/js/bootstrap-datepicker.min.js"></script>
 
       <script type="text/javascript" src="background.js"></script>
       <script type="text/javascript" src="timer.js"></script>
+      <script type="text/javascript" src="store.js"></script>
+      <script type="text/javascript" src="messenger.js"></script>
 
 
       <!-- External JS-->
