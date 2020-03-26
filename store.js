@@ -1,10 +1,7 @@
-var today = getDate();
-
-
 // Check if user has entered data today
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.cmd === 'ANSWERS') {
-        save(today, request.answers);
+        save(getDate(), request.answers);
     }
     else if (request.cmd === "FETCH") {
         load(request.when);
